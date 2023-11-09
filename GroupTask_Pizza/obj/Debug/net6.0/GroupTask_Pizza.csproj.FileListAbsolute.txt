@@ -1,0 +1,4 @@
+C:\Users\sefer\OneDrive\Desktop\GroupTask_Pizza\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sefer\OneDrive\Desktop\GroupTask_Pizza\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.AssemblyInfoInputs.cache
+C:\Users\sefer\OneDrive\Desktop\GroupTask_Pizza\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.AssemblyInfo.cs
+C:\Users\sefer\OneDrive\Desktop\GroupTask_Pizza\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.csproj.CoreCompileInputs.cache
