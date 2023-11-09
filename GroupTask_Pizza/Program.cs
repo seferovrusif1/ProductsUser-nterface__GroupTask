@@ -6,7 +6,6 @@ namespace GroupTask_Pizza
     {
         static void Main(string[] args)
         {
-            Services service = new Services();
             point1:
             Console.WriteLine("1.Sign In\n2. Sign Up");
             string a=Console.ReadLine();
@@ -14,11 +13,11 @@ namespace GroupTask_Pizza
             {
                 case "1":
                     Console.WriteLine("name->Pasword");
-                    service.SignIn(Console.ReadLine(), Console.ReadLine());
+                    Services.SignIn(Console.ReadLine(), Console.ReadLine());
                     break;
                 case "2":
                     Console.WriteLine("ad soyad mail password");
-                    service.SignUp(Console.ReadLine(), Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
+                    Services.SignUp(Console.ReadLine(), Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
                     goto point1;
             }
             bool admin = true;
@@ -27,7 +26,12 @@ namespace GroupTask_Pizza
                 case true:
 
                     break;
+
             }
+
+
+
+
         }
     }
 }

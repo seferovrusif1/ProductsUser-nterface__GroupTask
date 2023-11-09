@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GroupTask_Pizza.Models
 {
-    internal class Services
+    internal static class Services
     {
-        public string SignIn(string name,string password)
+        public static string SignIn(string name,string password)
         {
             var a=Database.Users.FirstOrDefault(x => x.mail == name);
             if (a == null)
@@ -29,7 +29,7 @@ namespace GroupTask_Pizza.Models
                 }
             }
         }
-        public void SignUp(string ad,string soyad,string mail ,string password)
+        public static void SignUp(string ad,string soyad,string mail ,string password)
         {
             var a=Database.Users.FirstOrDefault(y => y.mail == mail);
             if (a == null)
