@@ -6,7 +6,8 @@ namespace GroupTask_Pizza
     {
         static void Main(string[] args)
         {
-            point1:
+            Console.WriteLine("salam");
+        point1:
             Console.WriteLine("1.Sign In\n2. Sign Up");
             string a=Console.ReadLine();
             switch (a)
