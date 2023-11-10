@@ -10,7 +10,7 @@ namespace GroupTask_Pizza.Models
     {
         public string mail { get; set; }
         public string password { get; set; }
-        public bool admin { get; set; }
+        public Role role { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
 
@@ -18,7 +18,7 @@ namespace GroupTask_Pizza.Models
         {
             this.mail = mail;   
             this.password = password;
-            admin = false;
+            role = Role.Member;
             this.Name = name;
             this.Surname = surname;
         }
