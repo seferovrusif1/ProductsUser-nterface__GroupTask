@@ -11,33 +11,33 @@ namespace GroupTask_Pizza.Services
 {
     internal static class AdminService
     {
-        static void GetAllUsers()
+        public static void GetAllUsers()
         {
             Database.Users.ForEach(u => Console.WriteLine(u));
         }
-        static void GetAllProducts()
+        public static void GetAllProducts()
         {
             Database.Products.ForEach(u => Console.WriteLine(u));
         }
-        static void AddProduct(string name, decimal price)
+        public static void AddProduct(string name, decimal price)
         {
             Product product = new Product(name, price);
             Database.Products.Add(product);
         }
-        static void AddUser(string mail, string password, string name, string surname )
+        public static void AddUser(string mail, string password, string name, string surname )
         {
             User user = new User(mail, password, name, surname);
             Database.Users.Add(user);
         }
-        static void RemoveProduct(int id)
+        public static void RemoveProduct(int id)
         {
             Database.Products.Remove(GetProductById(id));
         }
-        static void RemoveUser(int id)
+       public static void RemoveUser(int id)
         {
             Database.Users.Remove(GetUserById(id));
         }
-        static void UpdateUser(int id)
+       public static void UpdateUser(int id)
         {
             var a = GetUserById(id);
             Console.WriteLine($"Userin rolu: {a.role}\nRolu deyismek isteyirsizse 1-e basin, Eks halda ferqli bir duymeye basin");
@@ -54,7 +54,7 @@ namespace GroupTask_Pizza.Services
                 }
             }
         }
-        static void UpdateProduct(int id)
+       public static void UpdateProduct(int id)
         {
             Product a = GetProductById(id);
             Console.WriteLine(a);
@@ -72,11 +72,11 @@ namespace GroupTask_Pizza.Services
                     break;
             }
         }
-        static User GetUserById(int id)
+       public static User GetUserById(int id)
         {
             return Database.Users.Find(p => p.Id == id);
         }
-        static Product GetProductById(int id)
+      public static Product GetProductById(int id)
         {
             return Database.Products.Find(p => p.Id == id);
         }

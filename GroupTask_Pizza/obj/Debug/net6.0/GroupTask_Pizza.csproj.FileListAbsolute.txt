@@ -2,3 +2,17 @@ C:\Users\sefer\OneDrive\Desktop\GroupTask_Pizza\GroupTask_Pizza\obj\Debug\net6.0
 C:\Users\sefer\OneDrive\Desktop\GroupTask_Pizza\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.AssemblyInfoInputs.cache
 C:\Users\sefer\OneDrive\Desktop\GroupTask_Pizza\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.AssemblyInfo.cs
 C:\Users\sefer\OneDrive\Desktop\GroupTask_Pizza\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.csproj.CoreCompileInputs.cache
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.AssemblyInfoInputs.cache
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.AssemblyInfo.cs
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.csproj.CoreCompileInputs.cache
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\bin\Debug\net6.0\GroupTask_Pizza.exe
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\bin\Debug\net6.0\GroupTask_Pizza.deps.json
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\bin\Debug\net6.0\GroupTask_Pizza.runtimeconfig.json
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\bin\Debug\net6.0\GroupTask_Pizza.dll
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\bin\Debug\net6.0\GroupTask_Pizza.pdb
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.dll
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\obj\Debug\net6.0\refint\GroupTask_Pizza.dll
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.pdb
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\obj\Debug\net6.0\GroupTask_Pizza.genruntimeconfig.cache
+C:\Users\sefer\OneDrive\Desktop\ProductsUser-nterface__GroupTask\GroupTask_Pizza\obj\Debug\net6.0\ref\GroupTask_Pizza.dll

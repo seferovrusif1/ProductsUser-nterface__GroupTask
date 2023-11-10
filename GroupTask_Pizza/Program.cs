@@ -1,4 +1,6 @@
 ﻿using GroupTask_Pizza.Models;
+using GroupTask_Pizza.Services;
+using System.Runtime.ConstrainedExecution;
 
 namespace GroupTask_Pizza
 {
@@ -24,19 +26,72 @@ namespace GroupTask_Pizza
                 {
                     case "1":
                         Console.WriteLine("name->Pasword");
-                        rol = Services.SignIn(Console.ReadLine(), Console.ReadLine());
+                        rol =UserService.SignIn(Console.ReadLine(), Console.ReadLine());
                         break;
                     case "2":
                         Console.WriteLine("ad soyad mail password");
-                        Services.SignUp(Console.ReadLine(), Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
+                        UserService.SignUp(Console.ReadLine(), Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
                         goto point1;
                     case "3":
                         iscontinue = false;
                         break;
                 }
-                if (rol == Role.Admin)
+                while (rol == Role.Admin)
                 {
-                    Console.WriteLine($"1. Pizzalara bax\n2. Sifaris ver\n3. Pizzalar\n4. Userler");
+                    Console.WriteLine($"1. Pizzalara bax\n2. Sifaris ver\n3. Pizzalar\n4. Userler\n5. Hesabdan Cix ");
+                    string b = Console.ReadLine();
+                    switch (b)
+                    {
+                        case "1":
+                            break;
+                        case "2":
+                            break;
+                        case "3":             case "4":
+                            Console.WriteLine($"1. Hamsina bax\n2. Elave et\n3. Duzelis et (ID ile)\n4. Sil (ID ile)");
+                            b += Console.ReadLine();
+                            switch (b)
+                            {
+                                case "31":
+                                    AdminService.GetAllProducts();
+                                    break;
+                                case "41":
+                                    AdminService.GetAllUsers();
+                                    break;
+                                case "32":
+                                    Console.WriteLine("NAme-Price");
+                                    AdminService.AddProduct(Console.ReadLine(), Convert.ToDecimal(Console.ReadLine()));
+                                    break;
+                                case "42":
+                                    AdminService.AddUser(Console.ReadLine(), Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
+                                    break;
+                                case "33":
+                                    Console.WriteLine("enter id");
+                                    AdminService.UpdateProduct(Convert.ToInt32(Console.ReadLine()));
+                                    break;
+                                case "43":
+                                    Console.WriteLine("enter id");
+                                    AdminService.UpdateUser(Convert.ToInt32(Console.ReadLine()));
+                                    break;
+                                case "34":
+                                    Console.WriteLine("enter id");
+                                    AdminService.RemoveProduct(Convert.ToInt32(Console.ReadLine()));
+                                    break;
+                                case "44":
+                                    Console.WriteLine("enter id");
+                                    AdminService.RemoveUser(Convert.ToInt32(Console.ReadLine()));
+
+                                    break;
+                            }
+                            break;
+                        case "5":
+                            rol = Role.Default;
+                            break;
+
+                    }
+                }
+                while (rol == Role.Member)
+                {
+                    Console.WriteLine($"1. Pizzalara bax\n2. Sifariş ver\n3. Hesabdan Cix ");
                     string b = Console.ReadLine();
                     switch (b)
                     {
@@ -45,13 +100,10 @@ namespace GroupTask_Pizza
                         case "2":
                             break;
                         case "3":
-                        case "4":
-                            Console.WriteLine($"1. Hamsina bax\n2. Elave et\n3. Duzelis et (ID ile)\n4. Sil (ID ile)");
+                            rol = Role.Default;
                             break;
-
                     }
-                }
-
+                    }
             }
         }
     }
