@@ -10,6 +10,6 @@ namespace GroupTask_Pizza.Models
     {
         Default,
         Admin,
-        User
+        Member
     }
 }
