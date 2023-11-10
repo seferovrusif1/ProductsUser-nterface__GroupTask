@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GroupTask_Pizza.Models;
 
-namespace GroupTask_Pizza.Models
+namespace GroupTask_Pizza.Services
 {
     internal static class Services
     {
