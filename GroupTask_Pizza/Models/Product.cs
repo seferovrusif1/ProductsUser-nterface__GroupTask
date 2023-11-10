@@ -19,5 +19,10 @@ namespace GroupTask_Pizza.Models
             Name = name;
             Price = price;
         }
+
+        public override string ToString()
+        {
+            return $"Id=> {Id}  Name: {Name}  Price: {Price}";
+        }
     }
 }
