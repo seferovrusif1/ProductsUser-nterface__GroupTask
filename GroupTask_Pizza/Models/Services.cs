@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,30 +10,32 @@ namespace GroupTask_Pizza.Models
 {
     internal static class Services
     {
-        public static string SignIn(string name,string password)
+
+        public static Role SignIn(string name, string password)
         {
-            var a=Database.Users.FirstOrDefault(x => x.mail == name);
+            var a = Database.Users.FirstOrDefault(x => x.mail == name);
             if (a == null)
             {
                 Console.WriteLine("user not found");
-                return null;
+                return default;
             }
             else
             {
-                if (a.password==password)
+                if (a.password == password)
                 {
-                    return "admin";
+                    Console.WriteLine($"Xosh geldiniz, {a.Name} {a.Surname}");
+                    return a.role;
                 }
                 else
                 {
                     Console.WriteLine("pasword is wrong!");
-                    return null;
+                    return default;
                 }
             }
         }
-        public static void SignUp(string ad,string soyad,string mail ,string password)
+        public static void SignUp(string ad, string soyad, string mail, string password)
         {
-            var a=Database.Users.FirstOrDefault(y => y.mail == mail);
+            var a = Database.Users.FirstOrDefault(y => y.mail == mail);
             if (a == null)
             {
                 User user = new User(mail, password, ad, soyad);
@@ -45,3 +49,5 @@ namespace GroupTask_Pizza.Models
         }
     }
 }
+
+
