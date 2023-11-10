@@ -26,6 +26,10 @@ namespace GroupTask_Pizza.Models
             this.Name = name;
             this.Surname = surname;
         }
+        public override string ToString()
+        {
+            return $"Id=> {Id}  mail: {mail}  password: {password}  role: {role}  Name: {Name}  Surname: {Surname}";
+        }
 
     }
 }

@@ -9,7 +9,7 @@ using GroupTask_Pizza.Models;
 
 namespace GroupTask_Pizza.Services
 {
-    internal static class Services
+    internal static class UserService
     {
 
         public static Role SignIn(string name, string password)
