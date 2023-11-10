@@ -8,6 +8,8 @@ namespace GroupTask_Pizza.Models
 {
     internal class User
     {
+        static int _id = 1;
+        public int Id { get; }
         public string mail { get; set; }
         public string password { get; set; }
         public Role role { get; set; }
@@ -16,6 +18,8 @@ namespace GroupTask_Pizza.Models
 
         public User(string mail,string password,string name,string surname)
         {
+            Id = _id;
+            _id++;
             this.mail = mail;   
             this.password = password;
             role = Role.Member;
