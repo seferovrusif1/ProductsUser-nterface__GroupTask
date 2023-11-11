@@ -10,6 +10,7 @@ namespace GroupTask_Pizza.Models
     {
         public static List<Product> Products = new List<Product>();
         public static List<User> Users = new List<User>();
+        public static List<Product> OrderedList = new List<Product>();
 
     }
 }
