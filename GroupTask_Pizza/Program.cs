@@ -8,6 +8,13 @@ namespace GroupTask_Pizza
     {
         static void Main(string[] args)
         {
+            Database.Products.Add(new Product("Italiano Pizza", 15));
+            Database.Products.Add(new Product("Mixed Pizza", 20));
+            Database.Products.Add(new Product("Mexican Pizza", 30));
+            Database.Products.Add(new Product("Head Papa John's Pizza", 25));
+            Database.Products.Add(new Product("Vegetarian Pizza", 15));
+
+
             User user1 = new User("rs@gmail.com", "1234abcd", "Rusif", "Safarov"); user1.role = Role.Admin;
             User user2 = new User("fd@gmail.com", "1234abcd", "Fuad", "Khalilov"); user2.role = Role.Admin;
             User user3 = new User("nc@gmail.com", "1234abcd", "Nihad", "Cafarov"); user3.role = Role.Admin;
@@ -91,19 +98,54 @@ namespace GroupTask_Pizza
                 }
                 while (rol == Role.Member)
                 {
-                    Console.WriteLine($"1. Pizzalara bax\n2. Sifariş ver\n3. Hesabdan Cix ");
-                    string b = Console.ReadLine();
-                    switch (b)
+                    /* Console.WriteLine($"1. Pizzalara bax\n2. Sifariş ver\n3. Hesabdan Cix ");
+                     string b = Console.ReadLine();
+                     switch (b)
+                     {
+                         case "1":
+                             break;
+                         case "2":
+                             break;
+                         case "3":
+                             rol = Role.Default;
+                             break;
+                     }*/
+
+                    // --------------------------------------
+
+                    bool IsContinue = true;
+                    while (IsContinue)
                     {
-                        case "1":
-                            break;
-                        case "2":
-                            break;
-                        case "3":
-                            rol = Role.Default;
-                            break;
+                        Console.WriteLine("Pizza Catalogs: \n");
+
+                        Console.WriteLine("1. View Pizzas");
+                        Console.WriteLine("2. Add to Cart");
+                        Console.WriteLine("3. Place an Order");
+                        Console.WriteLine("4. Exit");
+
+                        byte opt = Convert.ToByte(Console.ReadLine());
+                        switch (opt)
+                        {
+                            case 1:
+                                ListOfCatalogs();
+                                break;
+                            case 2:
+                                AddToCart();
+                                break;
+                            case 3:
+                                DoOrder();
+                                break;
+                            case 4:
+                                IsContinue = false;
+                                Console.WriteLine("Thanks for Visiting!");
+                                break;
+                            default:
+                                Console.WriteLine("Wrong Option.Please opt again.");
+                                break;
+                        }
                     }
-                    }
+
+                }
             }
         }
     }

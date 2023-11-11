@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\sefer\\.nuget\\packages\\": {}
+    "C:\\Users\\msi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj",
+      "projectUniqueName": "C:\\Users\\msi\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj",
       "projectName": "GroupTask_Pizza",
-      "projectPath": "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj",
-      "packagesPath": "C:\\Users\\sefer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\obj\\",
+      "projectPath": "C:\\Users\\msi\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj",
+      "packagesPath": "C:\\Users\\msi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\msi\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\sefer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\msi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
