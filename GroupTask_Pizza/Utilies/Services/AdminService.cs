@@ -58,7 +58,7 @@ namespace GroupTask_Pizza.Utilies.Services
         {
             Product a = GetProductById(id);
             Console.WriteLine(a);
-            Console.WriteLine("1. Adi deyismek\n2. Qiymeti deyismek");
+            Console.WriteLine("1. Adi deyismek\n2. Qiymeti deyismek\n3. Sayi deyismek");
             string b = Console.ReadLine();
             switch (b)
             {
@@ -69,6 +69,10 @@ namespace GroupTask_Pizza.Utilies.Services
                 case "2":
                     Console.WriteLine("Yeni qiymet daxil edin: ");
                     a.Price = Convert.ToDecimal(Console.ReadLine());
+                    break;
+                case "3":
+                    Console.WriteLine("Yeni say daxil edin: ");
+                    a.Count = Convert.ToInt32(Console.ReadLine());
                     break;
             }
         }
