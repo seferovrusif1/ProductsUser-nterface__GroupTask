@@ -7,7 +7,7 @@ using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace GroupTask_Pizza.Services
+namespace GroupTask_Pizza.Utilies.Services
 {
     internal static class AdminService
     {
@@ -19,12 +19,12 @@ namespace GroupTask_Pizza.Services
         {
             Database.Products.ForEach(u => Console.WriteLine(u));
         }
-        public static void AddProduct(string name, decimal price,int count)
+        public static void AddProduct(string name, decimal price, int count)
         {
-            Product product = new Product(name, price,count);
+            Product product = new Product(name, price, count);
             Database.Products.Add(product);
         }
-        public static void AddUser(string mail, string password, string name, string surname )
+        public static void AddUser(string mail, string password, string name, string surname)
         {
             User user = new User(mail, password, name, surname);
             Database.Users.Add(user);
@@ -33,11 +33,11 @@ namespace GroupTask_Pizza.Services
         {
             Database.Products.Remove(GetProductById(id));
         }
-       public static void RemoveUser(int id)
+        public static void RemoveUser(int id)
         {
             Database.Users.Remove(GetUserById(id));
         }
-       public static void UpdateUser(int id)
+        public static void UpdateUser(int id)
         {
             var a = GetUserById(id);
             Console.WriteLine($"Userin rolu: {a.role}\nRolu deyismek isteyirsizse 1-e basin, Eks halda ferqli bir duymeye basin");
@@ -54,12 +54,12 @@ namespace GroupTask_Pizza.Services
                 }
             }
         }
-       public static void UpdateProduct(int id)
+        public static void UpdateProduct(int id)
         {
             Product a = GetProductById(id);
             Console.WriteLine(a);
             Console.WriteLine("1. Adi deyismek\n2. Qiymeti deyismek");
-            string b = Console.ReadLine() ;
+            string b = Console.ReadLine();
             switch (b)
             {
                 case "1":
@@ -72,11 +72,11 @@ namespace GroupTask_Pizza.Services
                     break;
             }
         }
-       public static User GetUserById(int id)
+        public static User GetUserById(int id)
         {
             return Database.Users.Find(p => p.Id == id);
         }
-      public static Product GetProductById(int id)
+        public static Product GetProductById(int id)
         {
             return Database.Products.Find(p => p.Id == id);
         }
