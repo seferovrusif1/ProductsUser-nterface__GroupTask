@@ -9,83 +9,80 @@ namespace GroupTask_Pizza.Services
 {
     internal class MemberService
     {
-        public void AddToOrder(Product pizza)
-        {
-            Database.OrderedList.Add(pizza);
-        }
-
-        public List<Product> GetOrder()
-        {
-            return Database.OrderedList;
-        }
-        public static void AddPizza(Product pizza)
-        {
-            Database.Products.Add(pizza);
-        }
-
         public static void GetPizzaCatalog()
         {
             Database.Products.ForEach(x => Console.WriteLine(x));
         }
 
-
+        public static void ListsOfOrdered()
+        {
+            order.Basket.ForEach(x => Console.WriteLine(x));
+        }
 
 
         //Elave eledik Method
 
-        static void ListOfCatalogs()
+        static Order order = new Order();
+        public static void AddToCart()
         {
-            for (int i = 0; i < Database.Products.Count; i++)
+            Console.WriteLine("Enter the pizza Id to order: ");
+            int idd = Convert.ToInt32(Console.ReadLine());
+            var a=Database.Products.Find(x => x.Id ==idd );
+            if (a == null)
             {
-                Console.WriteLine($"{i + 1}. {Database.Products[i].Name} - {Database.Products[i].Price} ");
-            }
-        }
-
-        static void AddToCart()
-        {
-            Console.WriteLine("Enter the pizza number to order: ");
-            if (int.TryParse(Console.ReadLine(), out int PizzaNumber) && PizzaNumber >= 1
-                && PizzaNumber <= Database.Products.Count)
-            {
-                // Burada -1 yazmagimin sebebi list 0 dan baslayir inputa 1 yazsam gedir 2 cisine dusur ona gore
-                Product orderedPizza = Database.Products[PizzaNumber - 1];
-
-                Database.Products.Add(orderedPizza);
-
-                Console.WriteLine($"{orderedPizza.Name} has added to the ordered list.");
+                Console.WriteLine("elemnt tapilmadi");
             }
             else
             {
-                Console.WriteLine("Wrong number. Please select a correct number!");
-                //Exception yaz
+                Console.WriteLine("pizza sayini daxil et");
+                int say = Convert.ToInt32(Console.ReadLine());
+                if (say<=a.Count)
+                {
+                    Product orderedPizza = new Product(a.Name,a.Price,a.Count-say);
+                    a.Count =a.Count- say;
+                    order.Basket.Add(orderedPizza);
+                }
+                else
+                {
+                    Console.WriteLine("Bu qeder mehsul yoxdur");
+                }
             }
         }
+       
+                //Database.Products.Add(orderedPizza);
 
-        static void DoOrder()
+                //Console.WriteLine($"{orderedPizza.Name} has added to the ordered list.");
+          
+            
+                //Console.WriteLine("Wrong number. Please select a correct number!");
+                //Exception yaz
+            
+
+        public static void DoOrder()
         {
-            if (Database.OrderedList.Count == 0)
+            if (order.Basket.Count == 0)
             {
                 Console.WriteLine("Your Order lists are empty.You must order first.");
+
                 //Exception yaz
             }
             else
             {
-                double TotalPrice = Database.OrderedList.Sum(pizza => pizza.Price);
                 ListsOfOrdered();
+                decimal TotalPrice = 0;
+                order.Basket.ForEach(x => TotalPrice+=x.Price*x.Count);
                 Console.WriteLine($"Total Price: {TotalPrice:C}");
+                Console.WriteLine("Adres - phone number");
+                string adress=Console.ReadLine();
+                string phonenumber=Console.ReadLine();
+                order.Adress = adress;           order.OrderDate = DateTime.Now;    order.PhoneNumber = phonenumber;
+                Database.OrdersList.Add(order);
+                order.PhoneNumber = null;       order.OrderDate = default;          order.Adress = null;  order.Basket = new List<Product>() { };
+
                 Console.WriteLine("Your Order is accepted succesfully. Thanks you!");
             }
         }
 
-        static void ListsOfOrdered()
-        {
-            /*Console.WriteLine("List of Orders:");
-            for (int i = 0; i < Database.OrderedList.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {Database.OrderedList[i].Name} - {Database.OrderedList[i].Price:C}");
-            }*/
 
-            Database.OrderedList.ForEach(x => Console.WriteLine(x));
-        }
     }
 }
