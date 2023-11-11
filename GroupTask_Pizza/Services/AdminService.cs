@@ -19,9 +19,9 @@ namespace GroupTask_Pizza.Services
         {
             Database.Products.ForEach(u => Console.WriteLine(u));
         }
-        public static void AddProduct(string name, decimal price)
+        public static void AddProduct(string name, decimal price,int count)
         {
-            Product product = new Product(name, price);
+            Product product = new Product(name, price,count);
             Database.Products.Add(product);
         }
         public static void AddUser(string mail, string password, string name, string surname )

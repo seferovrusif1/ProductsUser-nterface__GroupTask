@@ -8,11 +8,11 @@ namespace GroupTask_Pizza
     {
         static void Main(string[] args)
         {
-            Database.Products.Add(new Product("Italiano Pizza", 15));
-            Database.Products.Add(new Product("Mixed Pizza", 20));
-            Database.Products.Add(new Product("Mexican Pizza", 30));
-            Database.Products.Add(new Product("Head Papa John's Pizza", 25));
-            Database.Products.Add(new Product("Vegetarian Pizza", 15));
+            Database.Products.Add(new Product("Italiano Pizza", 15,5));
+            Database.Products.Add(new Product("Mixed Pizza", 20, 5));
+            Database.Products.Add(new Product("Mexican Pizza", 30, 5));
+            Database.Products.Add(new Product("Head Papa John's Pizza", 25, 5));
+            Database.Products.Add(new Product("Vegetarian Pizza", 15, 5));
 
 
             User user1 = new User("rs@gmail.com", "1234abcd", "Rusif", "Safarov"); user1.role = Role.Admin;
@@ -45,105 +45,91 @@ namespace GroupTask_Pizza
                 }
                 while (rol == Role.Admin)
                 {
-                    Console.WriteLine($"1. Pizzalara bax\n2. Sifaris ver\n3. Pizzalar\n4. Userler\n5. Hesabdan Cix ");
+                    Console.WriteLine($"1. Pizzalar(Admin)\n2. Userler(Adim)\n3. View Pizzas\n4. Add to Cart\n5. Place an Order\n6. Hesabdan Cix ");
                     string b = Console.ReadLine();
                     switch (b)
+          
                     {
-                        case "1":
-                            break;
-                        case "2":
-                            break;
-                        case "3":             case "4":
+
+                        case "1":             case "2":
                             Console.WriteLine($"1. Hamsina bax\n2. Elave et\n3. Duzelis et (ID ile)\n4. Sil (ID ile)");
                             b += Console.ReadLine();
                             switch (b)
                             {
-                                case "31":
+                                case "11":
                                     AdminService.GetAllProducts();
                                     break;
-                                case "41":
+                                case "21":
                                     AdminService.GetAllUsers();
                                     break;
-                                case "32":
-                                    Console.WriteLine("NAme-Price");
-                                    AdminService.AddProduct(Console.ReadLine(), Convert.ToDecimal(Console.ReadLine()));
+                                case "12":
+                                    Console.WriteLine("NAme-Price-count");
+                                    AdminService.AddProduct(Console.ReadLine(), Convert.ToDecimal(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()));
                                     break;
-                                case "42":
+                                case "22":
                                     AdminService.AddUser(Console.ReadLine(), Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
                                     break;
-                                case "33":
+                                case "13":
                                     Console.WriteLine("enter id");
                                     AdminService.UpdateProduct(Convert.ToInt32(Console.ReadLine()));
                                     break;
-                                case "43":
+                                case "23":
                                     Console.WriteLine("enter id");
                                     AdminService.UpdateUser(Convert.ToInt32(Console.ReadLine()));
                                     break;
-                                case "34":
+                                case "14":
                                     Console.WriteLine("enter id");
                                     AdminService.RemoveProduct(Convert.ToInt32(Console.ReadLine()));
                                     break;
-                                case "44":
+                                case "24":
                                     Console.WriteLine("enter id");
                                     AdminService.RemoveUser(Convert.ToInt32(Console.ReadLine()));
 
                                     break;
                             }
                             break;
+                        case "3":
+                            MemberService.GetPizzaCatalog();
+                            break;
+                        case "4":
+                            MemberService.AddToCart();
+                            break;
                         case "5":
+                            MemberService.DoOrder();
+                            break;
+                        case "6":
                             rol = Role.Default;
+                            break;
+
+                        default:
+                            Console.WriteLine("Wrong Option.Please opt again.");
                             break;
 
                     }
                 }
                 while (rol == Role.Member)
                 {
-                    /* Console.WriteLine($"1. Pizzalara bax\n2. Sifariş ver\n3. Hesabdan Cix ");
-                     string b = Console.ReadLine();
-                     switch (b)
-                     {
-                         case "1":
-                             break;
-                         case "2":
-                             break;
-                         case "3":
-                             rol = Role.Default;
-                             break;
-                     }*/
-
-                    // --------------------------------------
-
-                    bool IsContinue = true;
-                    while (IsContinue)
-                    {
-                        Console.WriteLine("Pizza Catalogs: \n");
-
-                        Console.WriteLine("1. View Pizzas");
-                        Console.WriteLine("2. Add to Cart");
-                        Console.WriteLine("3. Place an Order");
-                        Console.WriteLine("4. Exit");
-
-                        byte opt = Convert.ToByte(Console.ReadLine());
+                        Console.WriteLine($"1. View Pizzas\n2. Add to Cart\n3. Place an Order\n4. Exit");
+                        string opt = Console.ReadLine();
                         switch (opt)
                         {
-                            case 1:
-                                ListOfCatalogs();
+                            case "1":
+                                MemberService.GetPizzaCatalog();
                                 break;
-                            case 2:
-                                AddToCart();
+                            case "2":
+                                MemberService.AddToCart();
                                 break;
-                            case 3:
-                                DoOrder();
+                            case "3":
+                                MemberService.DoOrder();
                                 break;
-                            case 4:
-                                IsContinue = false;
+                            case "4":
+                                rol = Role.Default;
                                 Console.WriteLine("Thanks for Visiting!");
                                 break;
                             default:
                                 Console.WriteLine("Wrong Option.Please opt again.");
                                 break;
                         }
-                    }
 
                 }
             }

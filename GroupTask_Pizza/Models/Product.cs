@@ -12,17 +12,19 @@ namespace GroupTask_Pizza.Models
         public int Id { get; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public Product(string name, decimal price)
+        public int Count {  get; set; }
+        public Product(string name, decimal price, int count)
         {
             Id = _id;
             _id++;
             Name = name;
             Price = price;
+            Count = count;
         }
 
         public override string ToString()
         {
-            return $"Id=> {Id}  Name: {Name}  Price: {Price}";
+            return $"Id=> {Id}  Name: {Name}  Price: {Price:C}  Count: {Count}";
         }
     }
 }
