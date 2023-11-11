@@ -1,5 +1,5 @@
 ﻿using GroupTask_Pizza.Models;
-using GroupTask_Pizza.Services;
+using GroupTask_Pizza.Utilies.Services;
 using System.Runtime.ConstrainedExecution;
 
 namespace GroupTask_Pizza
@@ -45,7 +45,7 @@ namespace GroupTask_Pizza
                 }
                 while (rol == Role.Admin)
                 {
-                    Console.WriteLine($"1. Pizzalar(Admin)\n2. Userler(Adim)\n3. View Pizzas\n4. Add to Cart\n5. Place an Order\n6. Hesabdan Cix ");
+                    Console.WriteLine($"1. Pizzalar(Admin)\n2. Userler(Adim)\n3. Mehsullara bax\n4. Sebete elave et\n5. Sebete bax\n6. Sifarisi tamamla\n7. Sifarishlere bax\n8. Hesabdan Cix ");
                     string b = Console.ReadLine();
                     switch (b)
           
@@ -95,9 +95,19 @@ namespace GroupTask_Pizza
                             MemberService.AddToCart();
                             break;
                         case "5":
-                            MemberService.DoOrder();
+                            MemberService.ListsOfBasket();
                             break;
                         case "6":
+                            MemberService.DoOrder();
+                            break;
+                        case "7":
+                            MemberService.ListsOfOrdered();
+                            break;
+                        case "8":
+                            if (MemberService.CompleteOrder == false)
+                            {
+                                MemberService.UnCompletedOrder();
+                            }
                             rol = Role.Default;
                             break;
 
@@ -109,7 +119,7 @@ namespace GroupTask_Pizza
                 }
                 while (rol == Role.Member)
                 {
-                        Console.WriteLine($"1. View Pizzas\n2. Add to Cart\n3. Place an Order\n4. Exit");
+                        Console.WriteLine($"1. Mehsullara bax\n2. Sebete elave et\n3. Sebete bax\n4. Sifarisi tamamla\n5. Hesabdan cix");
                         string opt = Console.ReadLine();
                         switch (opt)
                         {
@@ -120,13 +130,19 @@ namespace GroupTask_Pizza
                                 MemberService.AddToCart();
                                 break;
                             case "3":
-                                MemberService.DoOrder();
+                                MemberService.ListsOfBasket();
                                 break;
                             case "4":
-                                rol = Role.Default;
-                                Console.WriteLine("Thanks for Visiting!");
+                                MemberService.DoOrder();
                                 break;
-                            default:
+                            case "5":
+                            if (MemberService.CompleteOrder == false)
+                            {
+                                MemberService.UnCompletedOrder();
+                            }
+                                rol = Role.Default;
+                                break;
+                        default:
                                 Console.WriteLine("Wrong Option.Please opt again.");
                                 break;
                         }
