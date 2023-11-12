@@ -10,7 +10,7 @@ namespace GroupTask_Pizza.Models
 {
     internal class Order
     {
-        private int _id = 0;
+        static private int id = 0;
         public int Id { get; }
         public string Adress { get; set; }
         public string PhoneNumber {  get; set; }
@@ -19,8 +19,8 @@ namespace GroupTask_Pizza.Models
 
         public Order(string adress,string phonenumber,DateTime datetime,List<Product> basket)
         {
-            _id++;
-            Id = _id;
+            Id= id;
+            id++;
             Adress = adress;
             PhoneNumber = phonenumber;
             OrderDate = datetime;            

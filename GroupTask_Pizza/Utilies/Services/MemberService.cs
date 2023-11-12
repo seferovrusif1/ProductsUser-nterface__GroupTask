@@ -24,6 +24,7 @@ namespace GroupTask_Pizza.Utilies.Services
         }
 
 
+        
         static Order order = new Order(null,null, default,new List<Product>() { });
         public static List<(int,int)> BasketTemp = new List<(int,int)>();
         public static bool  CompleteOrder=true;
@@ -44,7 +45,7 @@ namespace GroupTask_Pizza.Utilies.Services
                 if (say <= a.Count && say>0)
                 {
                     Product orderedPizza = new Product(a.Name, a.Price, say);
-                    a.Count = a.Count - say;
+                   // a.Count = a.Count - say;
                     order.Basket.Add(orderedPizza);
                     BasketTemp.Add((a.Id, say));
                     CompleteOrder = false;
@@ -72,18 +73,47 @@ namespace GroupTask_Pizza.Utilies.Services
                 string phonenumber = Console.ReadLine();
                 order=new Order(adress,phonenumber,DateTime.Now,order.Basket);
                 Database.OrdersList.Add(order);
-                order = new Order(null, null, default, new List<Product>() { });
-                Console.WriteLine("Your Order is accepted succesfully. Thanks you!");
+                order.Adress = null; order.PhoneNumber = null; order.OrderDate = default;  order.Basket=new List<Product>() { };
+                Console.WriteLine("Sifarish tamamlandi!");
                 CompleteOrder = true;
                 BasketTemp.Clear();
+
+                CompletedOrder();
                 
             }
         }
+
+
+        public static void CompletedOrder()
+        {
+
+            order.Adress = null;
+            order.PhoneNumber = null;
+            order.OrderDate = default;
+            order.Basket = new List<Product>() { };
+            foreach (var item in BasketTemp)
+            {
+                foreach (var prod in Database.Products)
+                {
+                    if (item.Item1 == prod.Id)
+                    {
+                        prod.Count -= item.Item2;
+                    }
+                }
+            }
+        }
+
+
+
+
+
         public static void UnCompletedOrder()
         {
 
-            order = new Order(null, null, default, new List<Product>() { });
-
+            order.Adress = null;
+            order.PhoneNumber = null;
+            order.OrderDate = default;
+            order.Basket = new List<Product>() { };
             foreach (var item in BasketTemp)
             {
                 foreach (var prod in Database.Products)
