@@ -1,4 +1,5 @@
 ﻿using GroupTask_Pizza.Models;
+using GroupTask_Pizza.Utilies.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,9 +72,15 @@ namespace GroupTask_Pizza.Utilies.Services
                 Console.WriteLine("Adres - phone number");
                 string adress = Console.ReadLine();
                 string phonenumber = Console.ReadLine();
-                order=new Order(adress,phonenumber,DateTime.Now,order.Basket);
+                while (!OrderValidation.PhoneValidation(phonenumber)) 
+                {
+                    Console.WriteLine("Nomre sehvdir, yeniden daxil edin");
+                    phonenumber = Console.ReadLine();
+                }
+                order = new Order(adress,phonenumber,DateTime.Now,order.Basket);
                 Database.OrdersList.Add(order);
-                order.Adress = null; order.PhoneNumber = null; order.OrderDate = default;  order.Basket=new List<Product>() { };
+                order = new Order(null, null, default, new List<Product>() { });
+                order.Id--;
                 Console.WriteLine("Sifarish tamamlandi!");
                 CompleteOrder = true;
                 BasketTemp.Clear();
@@ -83,14 +90,10 @@ namespace GroupTask_Pizza.Utilies.Services
             }
         }
 
-
         public static void CompletedOrder()
         {
-
-            order.Adress = null;
-            order.PhoneNumber = null;
-            order.OrderDate = default;
-            order.Basket = new List<Product>() { };
+            order = new Order(null, null, default, new List<Product>() { });
+            order.Id--;
             foreach (var item in BasketTemp)
             {
                 foreach (var prod in Database.Products)

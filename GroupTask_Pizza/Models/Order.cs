@@ -11,7 +11,7 @@ namespace GroupTask_Pizza.Models
     internal class Order
     {
         static private int id = 0;
-        public int Id { get; }
+        public int Id { get; set; }
         public string Adress { get; set; }
         public string PhoneNumber {  get; set; }
         public DateTime OrderDate { get; set; }

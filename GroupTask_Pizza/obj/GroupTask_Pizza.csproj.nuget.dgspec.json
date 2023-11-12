@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj": {}
+    "C:\\Users\\nihad\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj": {
+    "C:\\Users\\nihad\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj",
+        "projectUniqueName": "C:\\Users\\nihad\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj",
         "projectName": "GroupTask_Pizza",
-        "projectPath": "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj",
-        "packagesPath": "C:\\Users\\sefer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\obj\\",
+        "projectPath": "C:\\Users\\nihad\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj",
+        "packagesPath": "C:\\Users\\nihad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nihad\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sefer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nihad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
