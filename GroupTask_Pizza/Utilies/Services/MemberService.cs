@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Taskff.Utilies.Exceptions;
 
 namespace GroupTask_Pizza.Utilies.Services
 {
@@ -37,7 +38,7 @@ namespace GroupTask_Pizza.Utilies.Services
             var a = Database.Products.Find(x => x.Id == idd);
             if (a == null)
             {
-                Console.WriteLine("Mehsul tapilmadi");
+                throw new PizzaNotFoundException("Pizza Tapilmadi");
             }
             else
             {   
@@ -52,7 +53,8 @@ namespace GroupTask_Pizza.Utilies.Services
                 }
                 else
                 {
-                    Console.WriteLine("Mehsul sayi yanlisdir");
+                    throw new WrongCount("Mehsul sayi yanlisdir");
+                    
                 }
             }
         }
@@ -74,6 +76,7 @@ namespace GroupTask_Pizza.Utilies.Services
                 string phonenumber = Console.ReadLine();
                 while (!OrderValidation.PhoneValidation(phonenumber)) 
                 {
+
                     Console.WriteLine("Nomre sehvdir, yeniden daxil edin:");
                     phonenumber = Console.ReadLine();
                 }

@@ -6,18 +6,13 @@ using System.Threading.Tasks;
 
 namespace Taskff.Utilies.Exceptions
 {
-    public class PizzaNotFoundException : Exception
+    public  class PizzaNotFoundException : Exception
     {
-        public PizzaNotFoundException(string message) : base(message)
+        public  PizzaNotFoundException(string message) : base(message)
         {
         }
     }
-    public class UserNotFoundException : Exception
-    {
-        public UserNotFoundException(string message) : base(message)
-        {
-        }
-    }
+  
 
     public class WrongNameException : Exception
     {
@@ -40,6 +35,12 @@ namespace Taskff.Utilies.Exceptions
     public class WrongUsernameException : Exception
     {
         public WrongUsernameException(string message) : base(message)
+        {
+        }
+    }
+    public class WrongCount : Exception
+    {
+        public WrongCount(string message) : base(message)
         {
         }
     }
