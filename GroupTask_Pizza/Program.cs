@@ -1,5 +1,6 @@
 ﻿using GroupTask_Pizza.Models;
 using GroupTask_Pizza.Utilies.Services;
+using GroupTask_Pizza.Utilies.Validation;
 using System.Runtime.ConstrainedExecution;
 
 namespace GroupTask_Pizza
@@ -27,13 +28,28 @@ namespace GroupTask_Pizza
             while (iscontinue)
             {
             point1:
-                Console.WriteLine("1. Sign In\n2. Sign Up\n3. Quit");
+                Console.WriteLine("1. Girish edin\n2. Qeydiyatdan kechin\n3. Proqrami dayandirin");
                 string a = Console.ReadLine();
                 switch (a)
                 {
                     case "1":
-                        Console.WriteLine("name->Pasword");
-                        rol =UserService.SignIn(Console.ReadLine(), Console.ReadLine());
+                        Console.WriteLine("Mail-i daxil edin:"); string mail = Console.ReadLine();
+                        if (regex.MailValidation(mail))
+                        {
+                            Console.WriteLine("Shifreni daxil edin:"); string password = Console.ReadLine();
+                            if (regex.PasswordValidation(password))
+                            {
+                                rol = UserService.SignIn(mail, password);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Yanlish Melumat!");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Yanlish Melumat!");
+                        }
                         break;
                     case "2":
                         Console.WriteLine("ad soyad mail password");
@@ -53,7 +69,7 @@ namespace GroupTask_Pizza
 
                         case "1":             case "2":
                             Console.WriteLine($"1. Hamsina bax\n2. Elave et\n3. Duzelis et (ID ile)\n4. Sil (ID ile)");
-                            b += Console.ReadLine();
+                            b =b+ Console.ReadLine();
                             switch (b)
                             {
                                 case "11":
@@ -104,10 +120,10 @@ namespace GroupTask_Pizza
                             MemberService.ListsOfOrdered();
                             break;
                         case "8":
-                            if (MemberService.CompleteOrder == false)
-                            {
-                                MemberService.UnCompletedOrder();
-                            }
+                            //if (MemberService.CompleteOrder == false)
+                            //{
+                            //    MemberService.UnCompletedOrder();
+                            //}
                             rol = Role.Default;
                             break;
 
@@ -136,10 +152,10 @@ namespace GroupTask_Pizza
                                 MemberService.DoOrder();
                                 break;
                             case "5":
-                            if (MemberService.CompleteOrder == false)
-                            {
-                                MemberService.UnCompletedOrder();
-                            }
+                            //if (MemberService.CompleteOrder == false)
+                            //{
+                            //    MemberService.UnCompletedOrder();
+                            //}
                                 rol = Role.Default;
                                 break;
                         default:
