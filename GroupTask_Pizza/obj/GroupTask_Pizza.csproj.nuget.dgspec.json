@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj": {}
+    "C:\\Users\\sefer\\OneDrive\\Desktop\\New folder\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj": {
+    "C:\\Users\\sefer\\OneDrive\\Desktop\\New folder\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj",
+        "projectUniqueName": "C:\\Users\\sefer\\OneDrive\\Desktop\\New folder\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj",
         "projectName": "GroupTask_Pizza",
-        "projectPath": "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj",
+        "projectPath": "C:\\Users\\sefer\\OneDrive\\Desktop\\New folder\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\GroupTask_Pizza.csproj",
         "packagesPath": "C:\\Users\\sefer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sefer\\OneDrive\\Desktop\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\obj\\",
+        "outputPath": "C:\\Users\\sefer\\OneDrive\\Desktop\\New folder\\ProductsUser-nterface__GroupTask\\GroupTask_Pizza\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sefer\\AppData\\Roaming\\NuGet\\NuGet.Config",

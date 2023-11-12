@@ -5,10 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GroupTask_Pizza.Models;
+using GroupTask_Pizza.Utilies.Exceptions;
+using Taskff.Utilies.Exceptions;
 
-namespace GroupTask_Pizza.Models
+namespace GroupTask_Pizza.Utilies.Services
 {
-    internal static class Services
+    internal static class UserService
     {
 
         public static Role SignIn(string name, string password)
@@ -16,8 +19,7 @@ namespace GroupTask_Pizza.Models
             var a = Database.Users.FirstOrDefault(x => x.mail == name);
             if (a == null)
             {
-                Console.WriteLine("user not found");
-                return default;
+                throw new UserNotFoundException("Istifadechi Tapilmadi.");
             }
             else
             {
@@ -28,8 +30,7 @@ namespace GroupTask_Pizza.Models
                 }
                 else
                 {
-                    Console.WriteLine("pasword is wrong!");
-                    return default;
+                    throw new UserNotFoundException("Istifadechi Tapilmadi.");
                 }
             }
         }
@@ -44,7 +45,7 @@ namespace GroupTask_Pizza.Models
             }
             else
             {
-                Console.WriteLine("User movcuddur!");
+                Console.WriteLine("Istifadechi artiq movcuddur!");
             }
         }
     }
