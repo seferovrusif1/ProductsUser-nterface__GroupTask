@@ -17,7 +17,7 @@ namespace GroupTask_Pizza.Utilies.Services
             var a = Database.Users.FirstOrDefault(x => x.mail == name);
             if (a == null)
             {
-                Console.WriteLine("user not found");
+                Console.WriteLine("Istifadechi Tapilmadi.");
                 return default;
             }
             else
@@ -29,7 +29,7 @@ namespace GroupTask_Pizza.Utilies.Services
                 }
                 else
                 {
-                    Console.WriteLine("pasword is wrong!");
+                    Console.WriteLine("Melumatlar sehvdir!");
                     return default;
                 }
             }
@@ -45,7 +45,7 @@ namespace GroupTask_Pizza.Utilies.Services
             }
             else
             {
-                Console.WriteLine("User movcuddur!");
+                Console.WriteLine("Istifadechi artiq movcuddur!");
             }
         }
     }
