@@ -18,7 +18,7 @@ namespace GroupTask_Pizza
 
             User user1 = new User("rs@gmail.com", "1234abcd", "Rusif", "Safarov"); user1.role = Role.Admin;
             User user2 = new User("fd@gmail.com", "1234abcd", "Fuad", "Khalilov"); user2.role = Role.Admin;
-            User user3 = new User("nc@gmail.com", "1234abcd", "Nihad", "Cafarov"); user3.role = Role.Admin;
+            User user3 = new User("nc@gmail.com", "1234Abc", "Nihad", "Cafarov"); user3.role = Role.Admin;
 
             Database.Users.Add(user1); Database.Users.Add(user2); Database.Users.Add(user3);
 
@@ -34,10 +34,10 @@ namespace GroupTask_Pizza
                 {
                     case "1":
                         Console.WriteLine("Mail-i daxil edin:"); string mail = Console.ReadLine();
-                        if (regex.MailValidation(mail))
+                        if (UserValidation.MailValidation(mail))
                         {
                             Console.WriteLine("Shifreni daxil edin:"); string password = Console.ReadLine();
-                            if (regex.PasswordValidation(password))
+                            if (UserValidation.PasswordValidation(password))
                             {
                                 rol = UserService.SignIn(mail, password);
                             }
@@ -52,8 +52,8 @@ namespace GroupTask_Pizza
                         }
                         break;
                     case "2":
-                        Console.WriteLine("ad soyad mail password");
-                        UserService.SignUp(Console.ReadLine(), Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
+                        var aa = UserValidation.SignUpValidation();
+                        UserService.SignUp(aa.Item1, aa.Item2, aa.Item3, aa.Item4);
                         goto point1;
                     case "3":
                         iscontinue = false;
@@ -83,7 +83,8 @@ namespace GroupTask_Pizza
                                     AdminService.AddProduct(Console.ReadLine(), Convert.ToDecimal(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()));
                                     break;
                                 case "22":
-                                    AdminService.AddUser(Console.ReadLine(), Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
+                                    var aa = UserValidation.SignUpValidation();
+                                    UserService.SignUp(aa.Item1, aa.Item2, aa.Item3, aa.Item4);
                                     break;
                                 case "13":
                                     Console.WriteLine("enter id");
