@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GroupTask_Pizza.Models;
+using GroupTask_Pizza.Utilies.Exceptions;
+using Taskff.Utilies.Exceptions;
 
 namespace GroupTask_Pizza.Utilies.Services
 {
@@ -17,8 +19,7 @@ namespace GroupTask_Pizza.Utilies.Services
             var a = Database.Users.FirstOrDefault(x => x.mail == name);
             if (a == null)
             {
-                Console.WriteLine("Istifadechi Tapilmadi.");
-                return default;
+                throw new UserNotFoundException("Istifadechi Tapilmadi.");
             }
             else
             {
@@ -29,8 +30,7 @@ namespace GroupTask_Pizza.Utilies.Services
                 }
                 else
                 {
-                    Console.WriteLine("Melumatlar sehvdir!");
-                    return default;
+                    throw new UserNotFoundException("Istifadechi Tapilmadi.");
                 }
             }
         }

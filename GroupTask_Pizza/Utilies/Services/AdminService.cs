@@ -1,4 +1,5 @@
 ﻿using GroupTask_Pizza.Models;
+using GroupTask_Pizza.Utilies.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Taskff.Utilies.Exceptions;
 
 namespace GroupTask_Pizza.Utilies.Services
 {
@@ -78,10 +80,17 @@ namespace GroupTask_Pizza.Utilies.Services
         }
         public static User GetUserById(int id)
         {
+            if (Database.Users.Find(p => p.Id == id) == null) 
+            {
+                throw new UserNotFoundException("User Tapilmadi");
+            }
             return Database.Users.Find(p => p.Id == id);
         }
         public static Product GetProductById(int id)
-        {
+        {if (Database.Products.Find(p => p.Id == id) == null)
+            {
+                throw new PizzaNotFoundException("Pizza Tapilmadi");
+            }
             return Database.Products.Find(p => p.Id == id);
         }
     }
