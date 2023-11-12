@@ -16,8 +16,8 @@ namespace GroupTask_Pizza
             Database.Products.Add(new Product("Vegetarian Pizza", 15, 5));
 
 
-            User user1 = new User("rs@gmail.com", "1234abcd", "Rusif", "Safarov"); user1.role = Role.Admin;
-            User user2 = new User("fd@gmail.com", "1234abcd", "Fuad", "Khalilov"); user2.role = Role.Admin;
+            User user1 = new User("rs@gmail.com", "1234Abc", "Rusif", "Safarov"); user1.role = Role.Admin;
+            User user2 = new User("fd@gmail.com", "1234Abc", "Fuad", "Khalilov"); user2.role = Role.Admin;
             User user3 = new User("nc@gmail.com", "1234Abc", "Nihad", "Cafarov"); user3.role = Role.Admin;
 
             Database.Users.Add(user1); Database.Users.Add(user2); Database.Users.Add(user3);
@@ -58,6 +58,10 @@ namespace GroupTask_Pizza
                     case "3":
                         iscontinue = false;
                         break;
+                    default:
+                        Console.WriteLine("Yanlish deyer ,yeniden daxil edin:");
+                        break;
+
                 }
                 while (rol == Role.Admin)
                 {
@@ -79,27 +83,32 @@ namespace GroupTask_Pizza
                                     AdminService.GetAllUsers();
                                     break;
                                 case "12":
-                                    Console.WriteLine("NAme-Price-count");
-                                    AdminService.AddProduct(Console.ReadLine(), Convert.ToDecimal(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()));
+                                    Console.WriteLine("Adini daxil edin:");
+                                    string pizad = Console.ReadLine();
+                                    Console.WriteLine("Qiymetini daxil edin:");
+                                    decimal pizqiy = Convert.ToDecimal(Console.ReadLine());
+                                    Console.WriteLine("Sayini daxil edin:");
+                                    int pizsay = Convert.ToInt32(Console.ReadLine());
+                                    AdminService.AddProduct(pizad,pizqiy,pizsay);
                                     break;
                                 case "22":
                                     var aa = UserValidation.SignUpValidation();
                                     UserService.SignUp(aa.Item1, aa.Item2, aa.Item3, aa.Item4);
                                     break;
                                 case "13":
-                                    Console.WriteLine("enter id");
+                                    Console.WriteLine("Id daxil edin:");
                                     AdminService.UpdateProduct(Convert.ToInt32(Console.ReadLine()));
                                     break;
                                 case "23":
-                                    Console.WriteLine("enter id");
+                                    Console.WriteLine("Id daxil edin:");
                                     AdminService.UpdateUser(Convert.ToInt32(Console.ReadLine()));
                                     break;
                                 case "14":
-                                    Console.WriteLine("enter id");
+                                    Console.WriteLine("Id daxil edin:");
                                     AdminService.RemoveProduct(Convert.ToInt32(Console.ReadLine()));
                                     break;
                                 case "24":
-                                    Console.WriteLine("enter id");
+                                    Console.WriteLine("Id daxil edin:");
                                     AdminService.RemoveUser(Convert.ToInt32(Console.ReadLine()));
 
                                     break;
@@ -121,15 +130,15 @@ namespace GroupTask_Pizza
                             MemberService.ListsOfOrdered();
                             break;
                         case "8":
-                            //if (MemberService.CompleteOrder == false)
-                            //{
-                            //    MemberService.UnCompletedOrder();
-                            //}
+                            if (MemberService.CompleteOrder == false)
+                            {
+                                MemberService.UnCompletedOrder();
+                            }
                             rol = Role.Default;
                             break;
 
                         default:
-                            Console.WriteLine("Wrong Option.Please opt again.");
+                            Console.WriteLine("Yanlish deyer ,yeniden daxil edin:");
                             break;
 
                     }
@@ -153,14 +162,14 @@ namespace GroupTask_Pizza
                                 MemberService.DoOrder();
                                 break;
                             case "5":
-                            //if (MemberService.CompleteOrder == false)
-                            //{
-                            //    MemberService.UnCompletedOrder();
-                            //}
-                                rol = Role.Default;
+                            if (MemberService.CompleteOrder == false)
+                            {
+                                MemberService.UnCompletedOrder();
+                            }
+                            rol = Role.Default;
                                 break;
                         default:
-                                Console.WriteLine("Wrong Option.Please opt again.");
+                                Console.WriteLine("Yanlish deyer ,yeniden daxil edin:");
                                 break;
                         }
 

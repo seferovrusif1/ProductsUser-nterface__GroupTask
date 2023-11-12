@@ -32,21 +32,20 @@ namespace GroupTask_Pizza.Utilies.Services
 
         public static void AddToCart()
         {
-            Console.WriteLine("Enter the pizza Id to order: ");
+            Console.WriteLine("Sifarish etmek istediyiniz pizza Id-sini daxil edin: ");
             int idd = Convert.ToInt32(Console.ReadLine());
             var a = Database.Products.Find(x => x.Id == idd);
             if (a == null)
             {
-                Console.WriteLine("elemnt tapilmadi");
+                Console.WriteLine("Mehsul tapilmadi");
             }
             else
             {   
-                Console.WriteLine("pizza sayini daxil et");
+                Console.WriteLine("Pizza sayini daxil et");
                 int say = Convert.ToInt32(Console.ReadLine());
                 if (say <= a.Count && say>0)
                 {
                     Product orderedPizza = new Product(a.Name, a.Price, say);
-                   // a.Count = a.Count - say;
                     order.Basket.Add(orderedPizza);
                     BasketTemp.Add((a.Id, say));
                     CompleteOrder = false;
@@ -61,20 +60,21 @@ namespace GroupTask_Pizza.Utilies.Services
         {
             if (order.Basket.Count == 0)
             {
-                Console.WriteLine("Your Order lists are empty.You must order first.");
+                Console.WriteLine("Sebet boshdur!");
             }
             else
             {
                 ListsOfBasket();
                 decimal TotalPrice = 0;
                 order.Basket.ForEach(x => TotalPrice += x.Price * x.Count);
-                Console.WriteLine($"Total Price: {TotalPrice:C}"); 
-                Console.WriteLine("Adres - phone number");
+                Console.WriteLine($"Umumi mebleg: {TotalPrice:C}"); 
+                Console.WriteLine("Unvani daxil edin:");
                 string adress = Console.ReadLine();
+                Console.WriteLine("Telefon nomresini daxil edin");
                 string phonenumber = Console.ReadLine();
                 while (!OrderValidation.PhoneValidation(phonenumber)) 
                 {
-                    Console.WriteLine("Nomre sehvdir, yeniden daxil edin");
+                    Console.WriteLine("Nomre sehvdir, yeniden daxil edin:");
                     phonenumber = Console.ReadLine();
                 }
                 order = new Order(adress,phonenumber,DateTime.Now,order.Basket);
@@ -83,17 +83,17 @@ namespace GroupTask_Pizza.Utilies.Services
                 order.Id--;
                 Console.WriteLine("Sifarish tamamlandi!");
                 CompleteOrder = true;
+                CompletedOrder();
                 BasketTemp.Clear();
 
-                CompletedOrder();
                 
             }
         }
 
         public static void CompletedOrder()
         {
-            order = new Order(null, null, default, new List<Product>() { });
-            order.Id--;
+            //order = new Order(null, null, default, new List<Product>() { });
+            //order.Id--;
             foreach (var item in BasketTemp)
             {
                 foreach (var prod in Database.Products)
@@ -112,21 +112,8 @@ namespace GroupTask_Pizza.Utilies.Services
 
         public static void UnCompletedOrder()
         {
+            order = new Order(null, null, default, new List<Product>() { });
 
-            order.Adress = null;
-            order.PhoneNumber = null;
-            order.OrderDate = default;
-            order.Basket = new List<Product>() { };
-            foreach (var item in BasketTemp)
-            {
-                foreach (var prod in Database.Products)
-                {
-                    if (item.Item1==prod.Id)
-                    {
-                        prod.Count += item.Item2;
-                    }
-                }
-            }
         }
 
 
